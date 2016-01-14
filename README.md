@@ -1,0 +1,1 @@
+# lansingjs-1601-sequelize
