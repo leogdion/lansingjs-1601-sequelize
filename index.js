@@ -1,11 +1,6 @@
 var express = require('express');
 var app = express();
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
-
-
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('database', 'username', 'password', {
   dialect : 'sqlite',
@@ -16,6 +11,17 @@ var User = sequelize.define('User', {
   username: Sequelize.STRING,
   birthday: Sequelize.DATE
 });
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+app.get('/users', function (req, res) {
+  User.findAll().then(function (users) {
+    res.send(users);
+  });
+});
+
 
 sequelize.sync().then(function() {
   return User.create({
