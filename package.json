@@ -18,6 +18,7 @@
   "homepage": "https://github.com/leogdion/lansingjs-1601-sequelize#readme",
   "dependencies": {
     "express": "^4.13.3",
-    "sequelize": "^3.17.1"
+    "sequelize": "^3.17.1",
+    "sqlite3": "^3.1.1"
   }
 }
