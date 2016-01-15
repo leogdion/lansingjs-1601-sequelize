@@ -11,7 +11,13 @@ var sequelize = new Sequelize('database', 'username', 'password', {
 });
 
 var User = sequelize.define('User', {
-  username: Sequelize.STRING,
+  username: {
+    type: Sequelize.STRING,
+    unique: true,
+    validate: {
+      is: /^[a-z0-9]+(?:-[a-z0-9]+)*$/
+    }
+  },
   birthday: Sequelize.DATE
 });
 
@@ -47,12 +53,13 @@ app.post('/users', function (req, res) {
     }).then(function (user) {
         user.setFriend(friends);
         res.send(user);
+    }).catch(function (error) {
+        res.status(400).send(error);
     });
   });
-
 });
 
-sequelize.sync().then(function() {
+sequelize.sync({force: true}).then(function() {
   app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
   });
