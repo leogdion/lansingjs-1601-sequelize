@@ -13,3 +13,12 @@
 
 ### Repo
 * https://github.com/leogdion/lansingjs-1601-sequelize.git
+
+## Modules
+
+* body-parser 
+* express 
+* sequelize 
+* sqlite3
+
+`npm install --save body-parser express sequelize sqlite3`
