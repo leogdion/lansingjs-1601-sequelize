@@ -1,5 +1,4 @@
-# Sequelize Demo for LansingJS 
-# January 2016
+# LansingJS January 2016 - Sequelize Demo
 
 ## Prerequisites
 
